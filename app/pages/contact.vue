@@ -368,15 +368,6 @@ const handleSubmit = async () => {
             </div>
 
             <p v-if="errors.recaptcha" class="text-sm text-red-600">{{ errors.recaptcha }}</p>
-            
-            <!-- reCAPTCHA v3 badge - only visible on contact page -->
-            <div v-if="recaptchaSiteKey && recaptchaSiteKey.length > 0" class="mt-4 text-xs text-neutral-500 flex items-center gap-1">
-              <span>This site is protected by reCAPTCHA and the Google</span>
-              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:underline">Privacy Policy</a>
-              <span>and</span>
-              <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:underline">Terms of Service</a>
-              <span>apply.</span>
-            </div>
 
             <div class="pt-2">
               <button
