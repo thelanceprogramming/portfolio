@@ -64,10 +64,11 @@ export default defineNuxtConfig({
           'https://www.google.com',
           'https://www.gstatic.com'
         ],
-        'script-src-attr': ["'none'"],
+        'script-src-attr': ["'unsafe-hashes'"],
         'style-src': [
           "'self'",
-          "'nonce-{{nonce}}'"
+          "'nonce-{{nonce}}'",
+          "'unsafe-inline'"
         ],
         'connect-src': [
           "'self'",

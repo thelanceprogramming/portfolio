@@ -139,7 +139,7 @@
       "description": "A developer-focused landing page presenting Zeitlogic’s expertise in scalable software development, spanning web, mobile, and AI technologies for global, growth-driven teams.",
       "type": "landing-page",
       "is_featured": false,
-      "image": "images/zeitlogic-landing-page.png",
+      "image": "/images/zeitlogic-landing-page.png",
       "technologies": [
         {
           "name": "Next.js",
