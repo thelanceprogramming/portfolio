@@ -11,6 +11,8 @@ export default defineNuxtConfig({
   ],
   css: ['~/assets/css/main.css'],
   runtimeConfig: {
+    // Private keys (server-side only)
+    recaptchaSecretKey: process.env.RECAPTCHA_SECRET_KEY || '',
     public: {
       emailjs: {
         serviceId: 'service_h3ydxc9',
@@ -18,7 +20,7 @@ export default defineNuxtConfig({
         publicKey: 't0RJLM_Cy2pPzNpb0'
       },
       recaptcha: {
-        siteKey: '' // Add your reCAPTCHA Site Key here
+        siteKey: '6LfkEzssAAAAAMVUa5mxLk-ECbvysMDAhWvBk4NT'
       }
     }
   },

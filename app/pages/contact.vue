@@ -163,6 +163,26 @@ const handleSubmit = async () => {
   submitStatus.value = 'loading'
   
   try {
+    // Verify reCAPTCHA token on the server if token exists
+    if (recaptchaToken) {
+      const verificationResponse = await $fetch('/api/verify-recaptcha', {
+        method: 'POST',
+        body: {
+          token: recaptchaToken
+        }
+      })
+
+      if (!verificationResponse.success) {
+        errors.recaptcha = 'reCAPTCHA verification failed. Please try again.'
+        submitStatus.value = 'idle'
+        // Reset reCAPTCHA widget
+        if (recaptchaWidgetId.value !== null && typeof window !== 'undefined' && (window as any).grecaptcha) {
+          (window as any).grecaptcha.reset(recaptchaWidgetId.value)
+        }
+        return
+      }
+    }
+
     const now = new Date()
     const formattedTime = now.toLocaleString('en-US', {
       weekday: 'short',
@@ -178,8 +198,7 @@ const handleSubmit = async () => {
       name: formData.name.trim(),
       email: formData.email.trim(),
       message: formData.message.trim(),
-      time: formattedTime,
-      ...(recaptchaToken && { 'g-recaptcha-response': recaptchaToken })
+      time: formattedTime
     }
     
     await emailjs.send(
