@@ -31,19 +31,9 @@ export default defineNuxtConfig({
     }
   },
   image: {
-    // Ensure images are rendered during SSR
-    provider: 'ipx',
-    quality: 80,
-    format: ['webp', 'jpg'],
-    // Enable SSR rendering
-    screens: {
-      xs: 320,
-      sm: 640,
-      md: 768,
-      lg: 1024,
-      xl: 1280,
-      xxl: 1536
-    }
+    // Use static provider to serve images directly without IPX optimization
+    // This avoids 404 errors in production
+    provider: 'static'
   },
   security: {
     // Enable nonce support for strict CSP (works in SSR mode)
