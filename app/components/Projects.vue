@@ -628,6 +628,26 @@
     width: calc(100vw - 4rem);
   }
 
+  .project-image-container {
+    aspect-ratio: 4 / 3;
+  }
+
+  .project-image-container img,
+  .project-image-container :deep(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  .project-image-container picture,
+  .project-image-container :deep(picture) {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
   .mockup-image {
     width: 100%;
   }
