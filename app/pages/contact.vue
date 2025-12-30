@@ -8,6 +8,13 @@ useHead({
       name: 'description',
       content: 'Get in touch with Lance Javate. Have a project in mind? Let\'s create something that leaves an impression.'
     }
+  ],
+  script: [
+    {
+      src: 'https://www.google.com/recaptcha/api.js?render=6LfkEzssAAAAAMVUa5mxLk-ECbvysMDAhWvBk4NT',
+      async: true,
+      defer: true
+    }
   ]
 })
 
@@ -49,47 +56,60 @@ const errors = reactive({
 const submitStatus = ref<'idle' | 'loading' | 'success' | 'error'>('idle')
 const isSubmitting = computed(() => submitStatus.value === 'loading')
 const errorMessage = ref('')
-const recaptchaWidgetId = ref<number | null>(null)
 
-const recaptchaCallback = (token: string) => {
-  errors.recaptcha = ''
+// Initialize reCAPTCHA v3
+const initRecaptcha = () => {
+  if (typeof window === 'undefined' || !recaptchaSiteKey.value) return
+  
+  if ((window as any).grecaptcha) {
+    try {
+      (window as any).grecaptcha.ready(() => {
+        // reCAPTCHA v3 is ready
+      })
+    } catch (error) {
+      console.error('reCAPTCHA initialization error:', error)
+    }
+  } else {
+    setTimeout(initRecaptcha, 100)
+  }
 }
 
 onMounted(() => {
-  if (!recaptchaSiteKey.value) {
-    return
+  if (recaptchaSiteKey.value) {
+    initRecaptcha()
+  }
+})
+
+// Execute reCAPTCHA v3 and get token
+const executeRecaptcha = async (): Promise<string | null> => {
+  if (!recaptchaSiteKey.value || typeof window === 'undefined') {
+    return null
   }
 
-  if (typeof window === 'undefined') return
-
-  const initRecaptcha = () => {
+  return new Promise((resolve) => {
     if ((window as any).grecaptcha) {
       try {
-        recaptchaWidgetId.value = (window as any).grecaptcha.render('recaptcha-container', {
-          sitekey: recaptchaSiteKey.value,
-          callback: recaptchaCallback,
-          'expired-callback': () => {
-            errors.recaptcha = 'reCAPTCHA expired. Please verify again.'
-          }
+        (window as any).grecaptcha.ready(() => {
+          (window as any).grecaptcha
+            .execute(recaptchaSiteKey.value, { action: 'submit' })
+            .then((token: string) => {
+              resolve(token)
+            })
+            .catch(() => {
+              errors.recaptcha = 'reCAPTCHA verification failed. Please try again.'
+              resolve(null)
+            })
         })
       } catch (error) {
+        errors.recaptcha = 'reCAPTCHA verification failed. Please try again.'
+        resolve(null)
       }
     } else {
-      setTimeout(initRecaptcha, 100)
+      errors.recaptcha = 'reCAPTCHA is not loaded. Please refresh the page.'
+      resolve(null)
     }
-  }
-
-  initRecaptcha()
-})
-
-onUnmounted(() => {
-  if (recaptchaWidgetId.value !== null && typeof window !== 'undefined' && (window as any).grecaptcha) {
-    try {
-      (window as any).grecaptcha.reset(recaptchaWidgetId.value)
-    } catch (error) {
-    }
-  }
-})
+  })
+}
 
 const validateField = (fieldName: keyof typeof formData) => {
   const field = formData[fieldName]
@@ -130,17 +150,7 @@ const validateForm = (): boolean => {
   validateField('email')
   validateField('message')
   
-  if (recaptchaSiteKey.value && recaptchaWidgetId.value !== null) {
-    if (typeof window !== 'undefined' && (window as any).grecaptcha) {
-      const token = (window as any).grecaptcha.getResponse(recaptchaWidgetId.value)
-      if (!token) {
-        errors.recaptcha = 'Please complete the reCAPTCHA verification'
-        return false
-      }
-    }
-  }
-  
-  return !errors.name && !errors.email && !errors.message && !errors.recaptcha
+  return !errors.name && !errors.email && !errors.message
 }
 
 const handleSubmit = async () => {
@@ -151,18 +161,19 @@ const handleSubmit = async () => {
     return
   }
   
-  let recaptchaToken = ''
-  if (recaptchaSiteKey.value && recaptchaWidgetId.value !== null && typeof window !== 'undefined' && (window as any).grecaptcha) {
-    recaptchaToken = (window as any).grecaptcha.getResponse(recaptchaWidgetId.value)
-    if (!recaptchaToken) {
-      errors.recaptcha = 'Please complete the reCAPTCHA verification'
-      return
-    }
-  }
-  
   submitStatus.value = 'loading'
   
   try {
+    // Execute reCAPTCHA v3
+    let recaptchaToken = ''
+    if (recaptchaSiteKey.value) {
+      recaptchaToken = await executeRecaptcha()
+      if (!recaptchaToken) {
+        submitStatus.value = 'idle'
+        return
+      }
+    }
+    
     const now = new Date()
     const formattedTime = now.toLocaleString('en-US', {
       weekday: 'short',
@@ -194,10 +205,6 @@ const handleSubmit = async () => {
     formData.name = ''
     formData.email = ''
     formData.message = ''
-    
-    if (recaptchaWidgetId.value !== null && typeof window !== 'undefined' && (window as any).grecaptcha) {
-      (window as any).grecaptcha.reset(recaptchaWidgetId.value)
-    }
     
     setTimeout(() => {
       submitStatus.value = 'idle'
@@ -360,12 +367,15 @@ const handleSubmit = async () => {
               <p v-if="errors.message" class="mt-1 text-sm text-red-600">{{ errors.message }}</p>
             </div>
 
-            <div v-if="recaptchaSiteKey && recaptchaSiteKey.length > 0">
-              <div
-                id="recaptcha-container"
-                class="flex justify-start"
-              ></div>
-              <p v-if="errors.recaptcha" class="mt-2 text-sm text-red-600">{{ errors.recaptcha }}</p>
+            <p v-if="errors.recaptcha" class="text-sm text-red-600">{{ errors.recaptcha }}</p>
+            
+            <!-- reCAPTCHA v3 badge - only visible on contact page -->
+            <div v-if="recaptchaSiteKey && recaptchaSiteKey.length > 0" class="mt-4 text-xs text-neutral-500 flex items-center gap-1">
+              <span>This site is protected by reCAPTCHA and the Google</span>
+              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:underline">Privacy Policy</a>
+              <span>and</span>
+              <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:underline">Terms of Service</a>
+              <span>apply.</span>
             </div>
 
             <div class="pt-2">

@@ -21,13 +21,6 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      script: [
-        {
-          src: 'https://www.google.com/recaptcha/api.js?render=6LfkEzssAAAAAMVUa5mxLk-ECbvysMDAhWvBk4NT',
-          async: true,
-          defer: true
-        }
-      ]
     }
   },
   security: {
