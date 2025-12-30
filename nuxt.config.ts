@@ -57,7 +57,8 @@ export default defineNuxtConfig({
         'connect-src': [
           "'self'",
           'https://www.google.com',
-          'https://api.emailjs.com'
+          'https://api.emailjs.com',
+          'https://api.iconify.design'
         ],
         'frame-src': ['https://www.google.com']
       },
