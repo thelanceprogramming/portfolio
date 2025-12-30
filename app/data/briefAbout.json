@@ -1,0 +1,207 @@
+{
+  "sectionTitle": "Get to Know Me Better!",
+  "tabs": [
+    {
+      "id": "skills",
+      "label": "Skills",
+      "icon": "heroicons:wrench-screwdriver"
+    },
+    {
+      "id": "work",
+      "label": "Work Experience",
+      "icon": "heroicons:briefcase"
+    },
+    {
+      "id": "education",
+      "label": "Education",
+      "icon": "heroicons:academic-cap"
+    },
+    {
+      "id": "hobbies",
+      "label": "Hobbies",
+      "icon": "heroicons:sparkles"
+    }
+  ],
+  "work": {
+    "title": "Work Experience",
+    "icon": "heroicons:briefcase",
+    "companies": [
+      {
+        "name": "Kapwa Marketing",
+        "location": "Cordova, Cebu, Philippines",
+        "positions": [
+          {
+            "title": "Junior Web Developer",
+            "period": "Jun 2025 - Present"
+          },
+          {
+            "title": "Web Development Intern",
+            "period": "Jan 2025 - May 2025"
+          }
+        ]
+      }
+    ]
+  },
+  "education": {
+    "title": "Education",
+    "icon": "heroicons:academic-cap",
+    "schools": [
+      {
+        "name": "Cordova Public College",
+        "degree": "Bachelor of Science in Information Technology",
+        "type": "Tertiary School",
+        "period": "2021-2025"
+      },
+      {
+        "name": "Cordova Catholic Cooperative School",
+        "degree": null,
+        "type": "Secondary School",
+        "period": "2015-2021"
+      },
+      {
+        "name": "Cordova Central School",
+        "degree": null,
+        "type": "Grade School",
+        "period": "2008-2015"
+      }
+    ]
+  },
+  "hobbies": {
+    "title": "Hobbies",
+    "icon": "heroicons:sparkles",
+    "items": [
+      {
+        "name": "Coding",
+        "icon": "heroicons:code-bracket",
+        "description": "I love building web applications, exploring new technologies, and solving complex problems through elegant code solutions."
+      },
+      {
+        "name": "Listening Music",
+        "icon": "heroicons:musical-note",
+        "description": "I mostly listen to pop, but I also enjoy hip-hop, R&B, and folk. My favorite artists are Taylor Swift, SZA, and Kendrick Lamar."
+      },
+      {
+        "name": "Gaming",
+        "icon": "mdi:gamepad-variant",
+        "description": "I take interest in MOBA and RPG genres. I also play Tower Defense and Sandbox games. My favorite games are DOTA 2, BTD6, and Pokemon."
+      },
+      {
+        "name": "Workout",
+        "icon": "mdi:dumbbell",
+        "description": "I stay fit through regular exercise, maintaining my physical health, and building strength for a balanced lifestyle."
+      }
+    ]
+  },
+  "skills": {
+    "title": "Skills",
+    "icon": "heroicons:wrench-screwdriver",
+    "categories": [
+      {
+        "name": "Frontend",
+        "items": [
+          {
+            "name": "React",
+            "icon": "devicon:react",
+            "level": 85
+          },
+          {
+            "name": "Vue.js",
+            "icon": "devicon:vuejs",
+            "level": 90
+          },
+          {
+            "name": "JavaScript",
+            "icon": "devicon:javascript",
+            "level": 88
+          },
+          {
+            "name": "TypeScript",
+            "icon": "devicon:typescript",
+            "level": 80
+          },
+          {
+            "name": "Tailwind",
+            "icon": "devicon:tailwindcss",
+            "level": 85
+          }
+        ]
+      },
+      {
+        "name": "Backend",
+        "items": [
+          {
+            "name": "Node.js",
+            "icon": "devicon:nodejs",
+            "level": 85
+          },
+          {
+            "name": "PHP",
+            "icon": "devicon:php",
+            "level": 80
+          },
+          {
+            "name": "Laravel",
+            "icon": "devicon:laravel",
+            "level": 75
+          },
+          {
+            "name": "Python",
+            "icon": "devicon:python",
+            "level": 47
+          },
+          {
+            "name": "Java",
+            "icon": "devicon:java",
+            "level": 37
+          }
+        ]
+      },
+      {
+        "name": "Database",
+        "items": [
+          {
+            "name": "MongoDB",
+            "icon": "devicon:mongodb",
+            "level": 65
+          },
+          {
+            "name": "PostgreSQL",
+            "icon": "devicon:postgresql",
+            "level": 75
+          },
+          {
+            "name": "MySQL",
+            "icon": "devicon:mysql",
+            "level": 85
+          }
+        ]
+      },
+      {
+        "name": "Tools & Others",
+        "items": [
+          {
+            "name": "Git",
+            "icon": "devicon:git",
+            "level": 88
+          },
+          {
+            "name": "Nginx",
+            "icon": "devicon:nginx",
+            "level": 50
+          },
+          {
+            "name": "WordPress",
+            "icon": "devicon:wordpress",
+            "level": 80
+          },
+          {
+            "name": "Canva",
+            "icon": "simple-icons:canva",
+            "level": 75
+          }
+        ]
+      }
+    ]
+  }
+}
+

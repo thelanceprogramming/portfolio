@@ -1,0 +1,153 @@
+{
+  "sectionTitle": "Here's What I've been Building",
+  "projects": [
+    {
+      "id": 1,
+      "title": "JH PaintMaster Automobile Services Booking System",
+      "description": "A platform where customers can browse technicians, book car services, and communicate directly through a seamless, user-friendly system.",
+      "type": "web-app",
+      "is_featured": true,
+      "image": "/images/jh-paintmaster-automobile-booking-system-mockup.jpg",
+      "technologies": [
+        {
+          "name": "Vue.js",
+          "icon": "devicon:vuejs"
+        },
+        {
+          "name": "JavaScript",
+          "icon": "devicon:javascript"
+        },
+        {
+          "name": "Tailwind",
+          "icon": "devicon:tailwindcss"
+        },
+        {
+          "name": "Laravel",
+          "icon": "devicon:laravel"
+        },
+        {
+          "name": "MySQL",
+          "icon": "devicon:mysql"
+        }
+      ],
+      "liveUrl": "#",
+      "githubUrl": "https://github.com/thelanceprogramming/jhpaintmaster"
+    },
+    {
+      "id": 2,
+      "title": "WattoDo",
+      "description": "A simple task manager web application that allows the user to create and manage tasks or even just a reminder for yourself!",
+      "type": "web-app",
+      "is_featured": true,
+      "image": "/images/wattodo-mockup.webp",
+      "technologies": [
+        {
+          "name": "HTML5",
+          "icon": "devicon:html5"
+        },
+        {
+          "name": "CSS3",
+          "icon": "devicon:css3"
+        },
+        {
+          "name": "JavaScript",
+          "icon": "devicon:javascript"
+        },
+        {
+          "name": "PHP",
+          "icon": "devicon:php"
+        },
+        {
+          "name": "MySQL",
+          "icon": "devicon:mysql"
+        }
+      ],
+      "liveUrl": "#",
+      "githubUrl": "https://github.com/thelanceprogramming/wattodo"
+    },
+    {
+      "id": 3,
+      "title": "Monogram",
+      "description": "An e-commerce and ticket management system that provides a seamless shopping experience with integrated event ticket booking and management capabilities.",
+      "type": "web-app",
+      "is_featured": true,
+      "image": "/images/monogram-mockup.jpg",
+      "technologies": [
+        {
+          "name": "Nuxt.js",
+          "icon": "devicon:nuxtjs"
+        },
+        {
+          "name": "Laravel",
+          "icon": "devicon:laravel"
+        },
+        {
+          "name": "MySQL",
+          "icon": "devicon:mysql"
+        }
+      ],
+      "liveUrl": "#",
+      "githubUrl": "https://github.com/thelanceprogramming/monogram-ecommerce"
+    },
+    {
+      "id": 4,
+      "title": "Limpyado",
+      "description": "A comprehensive garbage collection management system that streamlines waste management operations, scheduling, and tracking for efficient service delivery.",
+      "type": "web-app",
+      "is_featured": false,
+      "image": "/images/limpyado-mockup.jpg",
+      "technologies": [
+        {
+          "name": "Vue.js",
+          "icon": "devicon:vuejs"
+        },
+        {
+          "name": "Node.js",
+          "icon": "devicon:nodejs"
+        },
+        {
+          "name": "Express.js",
+          "icon": "devicon:express"
+        },
+        {
+          "name": "MySQL",
+          "icon": "devicon:mysql"
+        }
+      ],
+      "liveUrl": "#",
+      "githubUrl": "#"
+    },
+    {
+      "id": 5,
+      "title": "Kinderspielkunst",
+      "description": "A beautiful and engaging landing page for a sustainable playground design company, showcasing their unique approach to creating natural play spaces for children.",
+      "type": "landing-page",
+      "is_featured": false,
+      "image": "/images/kinderspielkunst-landing-page.png",
+      "technologies": [
+        {
+          "name": "WordPress",
+          "icon": "devicon:wordpress"
+        }
+      ],
+      "liveUrl": "https://kinderspielkunst.de/",
+      "githubUrl": "#"
+    },
+    {
+      "id": 6,
+      "title": "Zeitlogic",
+      "description": "A modern and professional landing page built with Next.js, featuring optimal performance and SEO capabilities for a time management and productivity solutions company.",
+      "type": "landing-page",
+      "is_featured": false,
+      "image": "images/zeitlogic-landing-page.png",
+      "technologies": [
+        {
+          "name": "Next.js",
+          "icon": "devicon:nextjs"
+        }
+      ],
+      "liveUrl": "https://zeitlogic.com",
+      "githubUrl": "#"
+    }
+  ]
+}

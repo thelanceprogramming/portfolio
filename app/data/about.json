@@ -1,0 +1,334 @@
+{
+  "hero": {
+    "title": "About Me",
+    "subtitle": "A journey through code, creativity, and continuous learning"
+  },
+  "biography": {
+    "title": "About Me",
+    "motto": "May your love of learning be as boundless as the universe itself!",
+    "content": [
+      "I'm Lance Javate, a web developer based in Cebu, Philippines, specializing in modern, responsive web applications focused on usability and performance. I work across both frontend and backend technologies, allowing me to deliver complete, well-structured solutions from concept to deployment.",
+      "I currently work as a Junior Web Developer at Kapwa Marketing, where I progressed from an intern to a full-time role. My experience includes building client-facing websites, implementing responsive designs, and collaborating with cross-functional teams to deliver reliable, high-quality digital products.",
+      "I hold a Bachelor of Science in Information Technology from Cordova Public College, which provided a strong foundation in software development, web technologies, and modern programming practices.",
+      "I'm committed to continuous learning and staying up to date with industry trends. I'm always open to new projects, collaborations, and opportunities to create meaningful digital experiences."
+    ]
+  },
+  "timeline": {
+    "title": "My Journey",
+    "events": [
+      {
+        "id": 1,
+        "date": "2008",
+        "title": "Elementary School Begins",
+        "description": "Started my educational journey at Cordova Central School, where I first discovered my interest in computers and technology.",
+        "category": "education",
+        "icon": "heroicons:academic-cap"
+      },
+      {
+        "id": 2,
+        "date": "2015",
+        "title": "High School Adventure",
+        "description": "Entered Cordova Catholic Cooperative School for secondary education. This period sparked my deeper interest in technology and problem-solving.",
+        "category": "education",
+        "icon": "heroicons:academic-cap"
+      },
+      {
+        "id": 3,
+        "date": "2018",
+        "title": "First Programming Experience",
+        "description": "Discovered my passion for programming through self-learning and online resources. Built my first simple applications and fell in love with coding.",
+        "category": "personal",
+        "icon": "heroicons:code-bracket"
+      },
+      {
+        "id": 4,
+        "date": "2021",
+        "title": "College Journey Begins",
+        "description": "Enrolled in Bachelor of Science in Information Technology at Cordova Public College. Started formal education in software development and web technologies.",
+        "category": "education",
+        "icon": "heroicons:academic-cap"
+      },
+      {
+        "id": 5,
+        "date": "2022",
+        "title": "First Web Project",
+        "description": "Created my first full-stack web application, combining frontend and backend technologies. This project solidified my passion for web development.",
+        "category": "project",
+        "icon": "heroicons:globe-alt"
+      },
+      {
+        "id": 6,
+        "date": "2023",
+        "title": "Exploring Modern Frameworks",
+        "description": "Dived deep into React and Vue.js, learning component-based architecture and modern JavaScript patterns. Built several projects to master these technologies.",
+        "category": "project",
+        "icon": "heroicons:wrench-screwdriver"
+      },
+      {
+        "id": 7,
+        "date": "2024",
+        "title": "AI Tools Integration",
+        "description": "Started exploring AI-powered development tools and incorporating them into my workflow. Discovered how AI can enhance productivity and creativity in coding.",
+        "category": "personal",
+        "icon": "heroicons:sparkles"
+      },
+      {
+        "id": 8,
+        "date": "Jan 2025",
+        "title": "Web Development Intern",
+        "description": "Joined Kapwa Marketing as a Web Development Intern. Gained real-world experience working on client projects and collaborating with a professional team.",
+        "category": "work",
+        "icon": "heroicons:briefcase"
+      },
+      {
+        "id": 9,
+        "date": "Jun 2025",
+        "title": "Junior Web Developer",
+        "description": "Promoted to Junior Web Developer at Kapwa Marketing. Taking on more responsibilities, leading projects, and continuing to grow as a developer.",
+        "category": "work",
+        "icon": "heroicons:briefcase"
+      },
+      {
+        "id": 10,
+        "date": "2025",
+        "title": "Portfolio Website",
+        "description": "Built this comprehensive portfolio website using Nuxt 3 and Vue.js, showcasing my projects, skills, and journey as a developer.",
+        "category": "project",
+        "icon": "heroicons:globe-alt"
+      }
+    ]
+  },
+  "techStack": {
+    "title": "My Tech Stack",
+    "subtitle": "Technologies I work with to build amazing web experiences",
+    "categories": [
+      {
+        "name": "Frontend",
+        "icon": "heroicons:computer-desktop",
+        "items": [
+          {
+            "name": "Vue.js",
+            "icon": "devicon:vuejs",
+            "level": 90,
+            "description": "My go-to framework for building interactive user interfaces"
+          },
+          {
+            "name": "React",
+            "icon": "devicon:react",
+            "level": 85,
+            "description": "Building component-based applications with modern patterns"
+          },
+          {
+            "name": "JavaScript",
+            "icon": "devicon:javascript",
+            "level": 88,
+            "description": "The foundation of modern web development"
+          },
+          {
+            "name": "TypeScript",
+            "icon": "devicon:typescript",
+            "level": 80,
+            "description": "Adding type safety and better developer experience"
+          },
+          {
+            "name": "Tailwind CSS",
+            "icon": "devicon:tailwindcss",
+            "level": 85,
+            "description": "Rapid UI development with utility-first CSS"
+          },
+          {
+            "name": "HTML5",
+            "icon": "devicon:html5",
+            "level": 90,
+            "description": "Semantic markup and modern web standards"
+          },
+          {
+            "name": "CSS3",
+            "icon": "devicon:css3",
+            "level": 88,
+            "description": "Styling and animations for beautiful interfaces"
+          },
+          {
+            "name": "Nuxt.js",
+            "icon": "devicon:nuxtjs",
+            "level": 85,
+            "description": "Full-stack Vue framework for production-ready apps"
+          }
+        ]
+      },
+      {
+        "name": "Backend",
+        "icon": "heroicons:server",
+        "items": [
+          {
+            "name": "Node.js",
+            "icon": "devicon:nodejs",
+            "level": 85,
+            "description": "Building scalable server-side applications"
+          },
+          {
+            "name": "PHP",
+            "icon": "devicon:php",
+            "level": 80,
+            "description": "Server-side scripting for dynamic web applications"
+          },
+          {
+            "name": "Laravel",
+            "icon": "devicon:laravel",
+            "level": 75,
+            "description": "Elegant PHP framework for web artisans"
+          },
+          {
+            "name": "Python",
+            "icon": "devicon:python",
+            "level": 47,
+            "description": "Exploring automation and data processing"
+          },
+          {
+            "name": "Java",
+            "icon": "devicon:java",
+            "level": 37,
+            "description": "Learning object-oriented programming principles"
+          },
+          {
+            "name": "Express.js",
+            "icon": "devicon:express",
+            "level": 80,
+            "description": "Minimalist web framework for Node.js"
+          }
+        ]
+      },
+      {
+        "name": "Database",
+        "icon": "heroicons:circle-stack",
+        "items": [
+          {
+            "name": "MySQL",
+            "icon": "devicon:mysql",
+            "level": 85,
+            "description": "Relational database management for structured data"
+          },
+          {
+            "name": "PostgreSQL",
+            "icon": "devicon:postgresql",
+            "level": 75,
+            "description": "Advanced open-source relational database"
+          },
+          {
+            "name": "MongoDB",
+            "icon": "devicon:mongodb",
+            "level": 65,
+            "description": "NoSQL database for flexible data structures"
+          }
+        ]
+      },
+      {
+        "name": "Tools & Others",
+        "icon": "heroicons:wrench-screwdriver",
+        "items": [
+          {
+            "name": "Git",
+            "icon": "devicon:git",
+            "level": 88,
+            "description": "Version control and collaboration"
+          },
+          {
+            "name": "WordPress",
+            "icon": "devicon:wordpress",
+            "level": 80,
+            "description": "Content management and website building"
+          },
+          {
+            "name": "Nginx",
+            "icon": "devicon:nginx",
+            "level": 50,
+            "description": "Web server and reverse proxy configuration"
+          },
+          {
+            "name": "Canva",
+            "icon": "simple-icons:canva",
+            "level": 75,
+            "description": "Graphic design and visual content creation"
+          },
+          {
+            "name": "Figma",
+            "icon": "devicon:figma",
+            "level": 70,
+            "description": "UI/UX design and prototyping"
+          },
+          {
+            "name": "VS Code",
+            "icon": "devicon:vscode",
+            "level": 90,
+            "description": "My primary code editor for development"
+          },
+          {
+            "name": "Docker",
+            "icon": "devicon:docker",
+            "level": 60,
+            "description": "Containerization and deployment"
+          }
+        ]
+      }
+    ]
+  },
+  "lifeOutsideWork": {
+    "title": "Life Outside Work",
+    "subtitle": "What keeps me balanced and inspired",
+    "sections": [
+      {
+        "name": "Hobbies & Interests",
+        "items": [
+          {
+            "name": "Coding",
+            "icon": "heroicons:code-bracket",
+            "description": "I love building web applications, exploring new technologies, and solving complex problems through elegant code solutions. Even outside work hours, I enjoy working on personal projects and contributing to open-source.",
+            "color": "primary"
+          },
+          {
+            "name": "Music",
+            "icon": "heroicons:musical-note",
+            "description": "Music is my constant companion. I mostly listen to pop, but I also enjoy hip-hop, R&B, and folk. My favorite artists are Taylor Swift, SZA, and Kendrick Lamar. Music helps me focus while coding and relax after a long day.",
+            "color": "secondary"
+          },
+          {
+            "name": "Gaming",
+            "icon": "mdi:gamepad-variant",
+            "description": "I take interest in MOBA and RPG genres. I also play Tower Defense and Sandbox games. My favorite games are DOTA 2, BTD6, and Pokemon. Gaming helps me unwind and think strategically.",
+            "color": "primary"
+          },
+          {
+            "name": "Fitness",
+            "icon": "mdi:dumbbell",
+            "description": "I stay fit through regular exercise, maintaining my physical health, and building strength for a balanced lifestyle. A healthy body supports a healthy mind, especially important for long coding sessions.",
+            "color": "secondary"
+          }
+        ]
+      },
+      {
+        "name": "Personal Values",
+        "items": [
+          {
+            "name": "Continuous Learning",
+            "icon": "heroicons:book-open",
+            "description": "I believe in never stopping to learn. Technology evolves rapidly, and staying curious and adaptable is key to growth as a developer.",
+            "color": "primary"
+          },
+          {
+            "name": "Work-Life Balance",
+            "icon": "heroicons:heart",
+            "description": "Maintaining a healthy balance between work and personal life is essential. It keeps me creative, motivated, and prevents burnout.",
+            "color": "secondary"
+          },
+          {
+            "name": "Community",
+            "icon": "heroicons:user-group",
+            "description": "I value collaboration and community. Sharing knowledge, helping others, and learning from peers makes the journey more meaningful.",
+            "color": "primary"
+          }
+        ]
+      }
+    ]
+  }
+}
+
