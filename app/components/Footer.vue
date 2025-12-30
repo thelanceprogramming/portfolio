@@ -8,8 +8,6 @@ interface NavigationItem {
 
 const navigationItems = navigationData as NavigationItem[]
 
-const currentYear = useState('footer-year', () => new Date().getFullYear())
-
 const socialLinks = [
   {
     name: 'GitHub',
@@ -32,21 +30,21 @@ const socialLinks = [
 <template>
   <footer class="footer-container border-t border-gray-300 mt-auto bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="py-12 lg:py-16">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+      <div class="py-8 lg:py-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
           <div class="footer-column">
             <div class="flex items-center gap-3 mb-4">
               <NuxtImg
                 src="/logo.svg"
                 alt="Portfolio Logo"
-                class="h-12 w-12"
+                class="h-16 w-16"
                 loading="lazy"
               />
-              <h3 class="footer-brand-name text-2xl font-bold font-heading">
+              <h3 class="footer-brand-name text-lg font-bold font-heading">
                 thelanceprogramming
               </h3>
             </div>
-            <p class="footer-tagline text-sm sm:text-base leading-relaxed mb-6 max-w-sm">
+            <p class="footer-tagline text-sm sm:text-base leading-relaxed mb-6">
               I am from Cebu, Philippines and I create beautiful and functional web solutions that spark curiosity and leave a lasting impression.
             </p>
             <div class="flex items-center gap-4">
@@ -104,9 +102,20 @@ const socialLinks = [
         </div>
       </div>
 
+      <div class="py-4">
+        <div class="flex justify-center md:justify-end">
+          <NuxtLink
+            to="/privacy"
+            class="footer-privacy-link text-sm"
+          >
+            Privacy Policy
+          </NuxtLink>
+        </div>
+      </div>
+
       <div class="border-t border-gray-300 py-6">
         <div class="text-center text-sm text-gray-600">
-          <p>&copy; {{ currentYear }} Lance Javate. All rights reserved.</p>
+          <p>Made with ❤️ by Lance Javate</p>
         </div>
       </div>
     </div>
@@ -180,6 +189,7 @@ const socialLinks = [
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 0.5rem;
   color: rgb(107 114 128);
   text-decoration: none;
   transition: all 0.3s ease;
@@ -202,6 +212,16 @@ const socialLinks = [
 .footer-link:hover .footer-link-icon {
   opacity: 1;
   transform: translateX(0);
+}
+
+.footer-privacy-link {
+  color: rgb(107 114 128);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-privacy-link:hover {
+  color: rgb(7 0 77);
 }
 
 .cta-button {

@@ -43,14 +43,16 @@ const socialLinks = [
 const formData = reactive({
   name: '',
   email: '',
-  message: ''
+  message: '',
+  privacyAgreed: false
 })
 
 const errors = reactive({
   name: '',
   email: '',
   message: '',
-  recaptcha: ''
+  recaptcha: '',
+  privacyAgreed: ''
 })
 
 const submitStatus = ref<'idle' | 'loading' | 'success' | 'error'>('idle')
@@ -150,7 +152,13 @@ const validateForm = (): boolean => {
   validateField('email')
   validateField('message')
   
-  return !errors.name && !errors.email && !errors.message
+  if (!formData.privacyAgreed) {
+    errors.privacyAgreed = 'You must agree to the Privacy Policy to submit this form.'
+  } else {
+    errors.privacyAgreed = ''
+  }
+  
+  return !errors.name && !errors.email && !errors.message && !errors.privacyAgreed
 }
 
 const handleSubmit = async () => {
@@ -205,6 +213,7 @@ const handleSubmit = async () => {
     formData.name = ''
     formData.email = ''
     formData.message = ''
+    formData.privacyAgreed = false
     
     setTimeout(() => {
       submitStatus.value = 'idle'
@@ -368,6 +377,26 @@ const handleSubmit = async () => {
             </div>
 
             <p v-if="errors.recaptcha" class="text-sm text-red-600">{{ errors.recaptcha }}</p>
+
+            <div class="flex items-start gap-3">
+              <input
+                id="privacy-agreed"
+                v-model="formData.privacyAgreed"
+                type="checkbox"
+                required
+                :class="[
+                  'mt-1 w-4 h-4 rounded border transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2',
+                  errors.privacyAgreed ? 'border-red-500' : 'border-neutral-300'
+                ]"
+                @change="errors.privacyAgreed = ''"
+              />
+              <label for="privacy-agreed" class="text-sm text-neutral-700 leading-relaxed">
+                By submitting this form, you agree to the processing of your information as described in the 
+                <NuxtLink to="/privacy" class="text-primary-600 hover:text-primary-700 underline">Privacy Policy</NuxtLink> 
+                and Google reCAPTCHA.
+              </label>
+            </div>
+            <p v-if="errors.privacyAgreed" class="text-sm text-red-600 mt-1">{{ errors.privacyAgreed }}</p>
 
             <div class="pt-2">
               <button

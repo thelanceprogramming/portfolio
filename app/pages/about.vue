@@ -40,12 +40,12 @@ const socialLinks = [
   {
     name: 'Dribbble',
     icon: 'simple-icons:dribbble',
-    url: 'https://dribbble.com'
+    url: 'https://dribbble.com/thelanceprogramming'
   },
   {
     name: 'Pinterest',
     icon: 'simple-icons:pinterest',
-    url: 'https://pinterest.com'
+    url: 'https://pinterest.com/thelanceprogramming/'
   }
 ]
 

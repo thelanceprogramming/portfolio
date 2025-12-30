@@ -8,5 +8,7 @@
       <slot />
     </main>
     <Footer />
+    <RecaptchaBanner />
+    <ScrollToTop />
   </div>
 </template>

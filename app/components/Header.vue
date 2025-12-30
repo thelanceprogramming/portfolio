@@ -12,37 +12,39 @@ const isDrawerOpen = ref(false)
 
 <template>
   <header class="header-component border-b border-gray-300 sticky top-0 z-50 bg-neutral-50 backdrop-blur-sm">
-    <nav class="relative flex items-center justify-between py-4 px-4 sm:px-6 lg:px-8">
-      <NuxtLink
-        to="/"
-        class="brand-container effect-shine group flex items-center gap-3"
-      >
-        <Logo />
-        <span class="header-brand-name text-lg font-bold font-heading hidden lg:block relative z-10">
-          thelanceprogramming
-        </span>
-      </NuxtLink>
+    <nav class="relative flex items-center justify-between py-4">
+      <div class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 flex items-center justify-between relative">
+        <NuxtLink
+          to="/"
+          class="brand-container effect-shine group flex items-center gap-3"
+        >
+          <Logo />
+          <span class="header-brand-name text-lg font-bold font-heading hidden lg:block relative z-10">
+            thelanceprogramming
+          </span>
+        </NuxtLink>
 
-      <ul class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 items-center gap-8">
-        <li v-for="item in navigationItems" :key="item.to">
-          <NuxtLink
-            :to="item.to"
-            class="nav-link relative text-gray-700 font-medium transition-all duration-300 hover:text-primary-600"
-            active-class="nav-link-active"
-          >
-            <span class="relative z-10">{{ item.label }}</span>
-            <span class="nav-link-indicator"></span>
-          </NuxtLink>
-        </li>
-      </ul>
+        <ul class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 items-center gap-8">
+          <li v-for="item in navigationItems" :key="item.to">
+            <NuxtLink
+              :to="item.to"
+              class="nav-link relative text-gray-700 font-medium transition-all duration-300 hover:text-primary-600"
+              active-class="nav-link-active"
+            >
+              <span class="relative z-10">{{ item.label }}</span>
+              <span class="nav-link-indicator"></span>
+            </NuxtLink>
+          </li>
+        </ul>
 
-      <button
-        @click="isDrawerOpen = true"
-        class="md:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-200 transition-colors"
-        aria-label="Open menu"
-      >
-        <Icon name="heroicons:bars-3" class="w-6 h-6" />
-      </button>
+        <button
+          @click="isDrawerOpen = true"
+          class="md:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-200 transition-colors"
+          aria-label="Open menu"
+        >
+          <Icon name="heroicons:bars-3" class="w-6 h-6" />
+        </button>
+      </div>
     </nav>
 
     <MobileDrawer v-model="isDrawerOpen" :navigation-items="navigationItems" />
