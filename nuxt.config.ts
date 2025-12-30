@@ -12,6 +12,7 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   runtimeConfig: {
     // Private keys (server-side only)
+    // @ts-ignore - process.env is available at build time
     recaptchaSecretKey: process.env.RECAPTCHA_SECRET_KEY || '',
     public: {
       emailjs: {
@@ -28,7 +29,7 @@ export default defineNuxtConfig({
     head: {
       script: [
         {
-          src: 'https://www.google.com/recaptcha/api.js',
+          src: 'https://www.google.com/recaptcha/api.js?render=6LfkEzssAAAAAMVUa5mxLk-ECbvysMDAhWvBk4NT',
           async: true,
           defer: true
         }

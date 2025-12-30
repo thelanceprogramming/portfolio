@@ -49,47 +49,32 @@ const errors = reactive({
 const submitStatus = ref<'idle' | 'loading' | 'success' | 'error'>('idle')
 const isSubmitting = computed(() => submitStatus.value === 'loading')
 const errorMessage = ref('')
-const recaptchaWidgetId = ref<number | null>(null)
 
-const recaptchaCallback = (token: string) => {
-  errors.recaptcha = ''
-}
+// reCAPTCHA v3 - no widget needed, executes on form submit
+const executeRecaptcha = async (): Promise<string> => {
+  return new Promise((resolve, reject) => {
+    if (typeof window === 'undefined' || !(window as any).grecaptcha) {
+      reject(new Error('reCAPTCHA not loaded'))
+      return
+    }
 
-onMounted(() => {
-  if (!recaptchaSiteKey.value) {
-    return
-  }
+    if (!recaptchaSiteKey.value) {
+      reject(new Error('reCAPTCHA site key not configured'))
+      return
+    }
 
-  if (typeof window === 'undefined') return
-
-  const initRecaptcha = () => {
-    if ((window as any).grecaptcha) {
-      try {
-        recaptchaWidgetId.value = (window as any).grecaptcha.render('recaptcha-container', {
-          sitekey: recaptchaSiteKey.value,
-          callback: recaptchaCallback,
-          'expired-callback': () => {
-            errors.recaptcha = 'reCAPTCHA expired. Please verify again.'
-          }
+    ;(window as any).grecaptcha.ready(() => {
+      ;(window as any).grecaptcha
+        .execute(recaptchaSiteKey.value, { action: 'submit' })
+        .then((token: string) => {
+          resolve(token)
         })
-      } catch (error) {
-      }
-    } else {
-      setTimeout(initRecaptcha, 100)
-    }
-  }
-
-  initRecaptcha()
-})
-
-onUnmounted(() => {
-  if (recaptchaWidgetId.value !== null && typeof window !== 'undefined' && (window as any).grecaptcha) {
-    try {
-      (window as any).grecaptcha.reset(recaptchaWidgetId.value)
-    } catch (error) {
-    }
-  }
-})
+        .catch((error: any) => {
+          reject(error)
+        })
+    })
+  })
+}
 
 const validateField = (fieldName: keyof typeof formData) => {
   const field = formData[fieldName]
@@ -130,15 +115,7 @@ const validateForm = (): boolean => {
   validateField('email')
   validateField('message')
   
-  if (recaptchaSiteKey.value && recaptchaWidgetId.value !== null) {
-    if (typeof window !== 'undefined' && (window as any).grecaptcha) {
-      const token = (window as any).grecaptcha.getResponse(recaptchaWidgetId.value)
-      if (!token) {
-        errors.recaptcha = 'Please complete the reCAPTCHA verification'
-        return false
-      }
-    }
-  }
+  // reCAPTCHA v3 validation happens on submit, not here
   
   return !errors.name && !errors.email && !errors.message && !errors.recaptcha
 }
@@ -151,18 +128,21 @@ const handleSubmit = async () => {
     return
   }
   
-  let recaptchaToken = ''
-  if (recaptchaSiteKey.value && recaptchaWidgetId.value !== null && typeof window !== 'undefined' && (window as any).grecaptcha) {
-    recaptchaToken = (window as any).grecaptcha.getResponse(recaptchaWidgetId.value)
-    if (!recaptchaToken) {
-      errors.recaptcha = 'Please complete the reCAPTCHA verification'
-      return
-    }
-  }
-  
   submitStatus.value = 'loading'
   
   try {
+    // Execute reCAPTCHA v3 and get token
+    let recaptchaToken = ''
+    if (recaptchaSiteKey.value) {
+      try {
+        recaptchaToken = await executeRecaptcha()
+      } catch (error: any) {
+        errors.recaptcha = 'reCAPTCHA verification failed. Please try again.'
+        submitStatus.value = 'idle'
+        return
+      }
+    }
+
     // Verify reCAPTCHA token on the server if token exists
     if (recaptchaToken) {
       const verificationResponse = await $fetch('/api/verify-recaptcha', {
@@ -175,10 +155,6 @@ const handleSubmit = async () => {
       if (!verificationResponse.success) {
         errors.recaptcha = 'reCAPTCHA verification failed. Please try again.'
         submitStatus.value = 'idle'
-        // Reset reCAPTCHA widget
-        if (recaptchaWidgetId.value !== null && typeof window !== 'undefined' && (window as any).grecaptcha) {
-          (window as any).grecaptcha.reset(recaptchaWidgetId.value)
-        }
         return
       }
     }
@@ -213,10 +189,6 @@ const handleSubmit = async () => {
     formData.name = ''
     formData.email = ''
     formData.message = ''
-    
-    if (recaptchaWidgetId.value !== null && typeof window !== 'undefined' && (window as any).grecaptcha) {
-      (window as any).grecaptcha.reset(recaptchaWidgetId.value)
-    }
     
     setTimeout(() => {
       submitStatus.value = 'idle'
@@ -379,12 +351,9 @@ const handleSubmit = async () => {
               <p v-if="errors.message" class="mt-1 text-sm text-red-600">{{ errors.message }}</p>
             </div>
 
-            <div v-if="recaptchaSiteKey && recaptchaSiteKey.length > 0">
-              <div
-                id="recaptcha-container"
-                class="flex justify-start"
-              ></div>
-              <p v-if="errors.recaptcha" class="mt-2 text-sm text-red-600">{{ errors.recaptcha }}</p>
+            <!-- reCAPTCHA v3 runs invisibly in the background -->
+            <div v-if="recaptchaSiteKey && recaptchaSiteKey.length > 0 && errors.recaptcha">
+              <p class="mt-2 text-sm text-red-600">{{ errors.recaptcha }}</p>
             </div>
 
             <div class="pt-2">
