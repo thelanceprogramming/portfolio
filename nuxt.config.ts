@@ -30,11 +30,6 @@ export default defineNuxtConfig({
       ]
     }
   },
-  image: {
-    // Use static provider to serve images directly without IPX optimization
-    // This avoids 404 errors in production
-    provider: 'static'
-  },
   security: {
     // Enable nonce support for strict CSP (works in SSR mode)
     // Note: Nonces don't work in SSG mode - use hashes instead if using static generation
