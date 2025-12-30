@@ -113,26 +113,14 @@
                 <div class="project-image-wrapper">
                   <div class="relative group">
                     <div class="relative project-image-container overflow-hidden rounded-lg lg:rounded-xl">
-                      <ClientOnly>
-                        <NuxtImg
-                          :src="project.image"
-                          :alt="project.title"
-                          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                          loading="lazy"
-                          width="800"
-                          height="600"
-                        />
-                        <template #fallback>
-                          <img
-                            :src="project.image"
-                            :alt="project.title"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                            loading="lazy"
-                            width="800"
-                            height="600"
-                          />
-                        </template>
-                      </ClientOnly>
+                      <NuxtImg
+                        :src="project.image"
+                        :alt="project.title"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        loading="lazy"
+                        width="800"
+                        height="600"
+                      />
 
                       <div
                         class="absolute inset-0 bg-linear-to-t from-primary-600/90 via-primary-600/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
@@ -251,22 +239,12 @@
                     Want to see more of my work? Check out my complete portfolio and explore additional projects I've built.
                   </p>
                   <div class="w-full mt-6 flex justify-center overflow-visible">
-                    <ClientOnly>
-                      <NuxtImg
-                        src="/images/mockup-systems.svg"
-                        alt="Project systems mockup"
-                        class="mockup-image w-full h-auto"
-                        loading="lazy"
-                      />
-                      <template #fallback>
-                        <img
-                          src="/images/mockup-systems.svg"
-                          alt="Project systems mockup"
-                          class="mockup-image w-full h-auto"
-                          loading="lazy"
-                        />
-                      </template>
-                    </ClientOnly>
+                    <NuxtImg
+                      src="/images/mockup-systems.svg"
+                      alt="Project systems mockup"
+                      class="mockup-image w-full h-auto"
+                      loading="lazy"
+                    />
                   </div>
                   <div class="flex justify-center">
                     <Button variant="primary" @click="navigateTo('/portfolio')">

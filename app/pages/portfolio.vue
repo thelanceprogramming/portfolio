@@ -42,26 +42,14 @@ useHead({
             <div class="project-image-wrapper relative overflow-hidden">
               <div class="relative group">
                 <div class="project-image-container aspect-4/3 overflow-hidden bg-linear-to-br from-neutral-50 to-primary-600/10">
-                  <ClientOnly>
-                    <NuxtImg
-                      :src="project.image"
-                      :alt="project.title"
-                      class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      loading="lazy"
-                      width="800"
-                      height="600"
-                    />
-                    <template #fallback>
-                      <img
-                        :src="project.image"
-                        :alt="project.title"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
-                        width="800"
-                        height="600"
-                      />
-                    </template>
-                  </ClientOnly>
+                  <NuxtImg
+                    :src="project.image"
+                    :alt="project.title"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
+                    width="800"
+                    height="600"
+                  />
                   <div
                     class="absolute inset-0 bg-linear-to-t from-primary-600/90 via-primary-600/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                   ></div>
@@ -134,26 +122,14 @@ useHead({
             <div class="project-image-wrapper relative overflow-hidden">
               <div class="relative group">
                 <div class="project-image-container aspect-16/10 overflow-hidden bg-linear-to-br from-neutral-50 to-primary-600/10">
-                  <ClientOnly>
-                    <NuxtImg
-                      :src="project.image"
-                      :alt="project.title"
-                      class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      loading="lazy"
-                      width="1200"
-                      height="750"
-                    />
-                    <template #fallback>
-                      <img
-                        :src="project.image"
-                        :alt="project.title"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
-                        width="1200"
-                        height="750"
-                      />
-                    </template>
-                  </ClientOnly>
+                  <NuxtImg
+                    :src="project.image"
+                    :alt="project.title"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
+                    width="1200"
+                    height="750"
+                  />
                   <div
                     class="absolute inset-0 bg-linear-to-t from-primary-600/90 via-primary-600/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                   ></div>

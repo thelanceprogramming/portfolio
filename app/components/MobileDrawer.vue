@@ -85,22 +85,12 @@ const getIconForRoute = (route: string) => {
               @click="handleLinkClick"
               class="logo-link flex items-center gap-3 group flex-1 min-w-0"
             >
-              <ClientOnly>
-                <NuxtImg
-                  src="/logo.svg"
-                  alt="Portfolio Logo"
-                  class="h-10 w-10 flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
-                  loading="eager"
-                />
-                <template #fallback>
-                  <img
-                    src="/logo.svg"
-                    alt="Portfolio Logo"
-                    class="h-10 w-10 flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
-                    loading="eager"
-                  />
-                </template>
-              </ClientOnly>
+              <NuxtImg
+                src="/logo.svg"
+                alt="Portfolio Logo"
+                class="h-10 w-10 flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
+                loading="eager"
+              />
               <span class="header-brand-name text-base font-bold font-heading">
                 thelanceprogramming
               </span>

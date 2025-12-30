@@ -36,22 +36,12 @@ const socialLinks = [
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
           <div class="footer-column">
             <div class="flex items-center gap-3 mb-4">
-              <ClientOnly>
-                <NuxtImg
-                  src="/logo.svg"
-                  alt="Portfolio Logo"
-                  class="h-12 w-12"
-                  loading="lazy"
-                />
-                <template #fallback>
-                  <img
-                    src="/logo.svg"
-                    alt="Portfolio Logo"
-                    class="h-12 w-12"
-                    loading="lazy"
-                  />
-                </template>
-              </ClientOnly>
+              <NuxtImg
+                src="/logo.svg"
+                alt="Portfolio Logo"
+                class="h-12 w-12"
+                loading="lazy"
+              />
               <h3 class="footer-brand-name text-2xl font-bold font-heading">
                 thelanceprogramming
               </h3>
