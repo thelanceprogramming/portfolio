@@ -31,7 +31,7 @@ export default defineNuxtConfig({
     }
   },
   image: {
-    // Use ipx provider for image optimization
+    // Ensure images are rendered during SSR
     provider: 'ipx',
     quality: 80,
     format: ['webp', 'jpg'],
@@ -43,16 +43,7 @@ export default defineNuxtConfig({
       lg: 1024,
       xl: 1280,
       xxl: 1536
-    },
-    // IPX configuration for production
-    ipx: {
-      // Modifiers to allow
-      modifiers: {
-        quality: 80
-      }
-    },
-    // Disable optimization for certain file types that don't need it
-    presets: {}
+    }
   },
   security: {
     // Enable nonce support for strict CSP (works in SSR mode)
