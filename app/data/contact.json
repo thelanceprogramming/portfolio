@@ -1,0 +1,34 @@
+{
+  "heading": "I'd Love to Hear From You",
+  "subtitle": "Let's connect and discuss how we can work together on your next project.",
+  "contactMethods": [
+    {
+      "id": 1,
+      "title": "Email Me",
+      "description": "I'll get back to you as soon as possible.",
+      "icon": "heroicons:envelope",
+      "contactInfo": "lancejavate2002@gmail.com",
+      "link": "mailto:lancejavate2002@gmail.com",
+      "linkType": "mailto"
+    },
+    {
+      "id": 2,
+      "title": "Call Me Directly",
+      "description": "I am available to call and discuss your project needs.",
+      "icon": "heroicons:phone",
+      "contactInfo": "+639608997507",
+      "link": "tel:+639608997507",
+      "linkType": "tel"
+    },
+    {
+      "id": 3,
+      "title": "Connect on LinkedIn",
+      "description": "Visit my professional profile.",
+      "icon": "simple-icons:linkedin",
+      "contactInfo": "/in/thelanceprogramming",
+      "link": "https://www.linkedin.com/in/thelanceprogramming",
+      "linkType": "external"
+    }
+  ]
+}
+
