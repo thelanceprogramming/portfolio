@@ -29,18 +29,34 @@ const data = contactData
                 v-if="method.id === 1 || method.id === 2"
                 class="flex items-center justify-center w-12 h-12 rounded-full bg-primary-600 p-3"
               >
-                <NuxtImg
-                  v-if="method.id === 1"
-                  src="/videos/email-animated-icon.gif"
-                  alt="Email icon"
-                  class="w-8 h-8 object-contain"
-                />
-                <NuxtImg
-                  v-else-if="method.id === 2"
-                  src="/videos/phone-animated-icon.gif"
-                  alt="Phone icon"
-                  class="w-8 h-8 object-contain"
-                />
+                <ClientOnly>
+                  <NuxtImg
+                    v-if="method.id === 1"
+                    src="/videos/email-animated-icon.gif"
+                    alt="Email icon"
+                    class="w-8 h-8 object-contain"
+                  />
+                  <NuxtImg
+                    v-else-if="method.id === 2"
+                    src="/videos/phone-animated-icon.gif"
+                    alt="Phone icon"
+                    class="w-8 h-8 object-contain"
+                  />
+                  <template #fallback>
+                    <img
+                      v-if="method.id === 1"
+                      src="/videos/email-animated-icon.gif"
+                      alt="Email icon"
+                      class="w-8 h-8 object-contain"
+                    />
+                    <img
+                      v-else-if="method.id === 2"
+                      src="/videos/phone-animated-icon.gif"
+                      alt="Phone icon"
+                      class="w-8 h-8 object-contain"
+                    />
+                  </template>
+                </ClientOnly>
               </div>
               <div 
                 v-else

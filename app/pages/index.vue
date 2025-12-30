@@ -114,14 +114,26 @@ const startRoleTyping = () => {
                 <div class="corner-frame corner-top-left"></div>
                 <div class="corner-frame corner-bottom-right"></div>
                 <div class="bg-linear-to-b from-neutral-50 to-primary-600 rounded-xl pt-4 scale-90 shadow-lg">
-                  <NuxtImg
-                    src="/images/lance-javate-main-profile.jpg"
-                    alt="Lance Javate"
-                    class="w-full h-auto drop-shadow-2xl hero-image relative z-10"
-                    loading="eager"
-                    width="600"
-                    height="600"
-                  />
+                  <ClientOnly>
+                    <NuxtImg
+                      src="/images/lance-javate-main-profile.jpg"
+                      alt="Lance Javate"
+                      class="w-full h-auto drop-shadow-2xl hero-image relative z-10"
+                      loading="eager"
+                      width="600"
+                      height="600"
+                    />
+                    <template #fallback>
+                      <img
+                        src="/images/lance-javate-main-profile.jpg"
+                        alt="Lance Javate"
+                        class="w-full h-auto drop-shadow-2xl hero-image relative z-10"
+                        loading="eager"
+                        width="600"
+                        height="600"
+                      />
+                    </template>
+                  </ClientOnly>
                 </div>
               </div>
             </div>

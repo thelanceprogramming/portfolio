@@ -104,14 +104,26 @@ const briefTimeline = [
             <div class="biography-text-content">
               <h2 class="biography-section-title">{{ data.biography.title }}</h2>
               <div class="biography-inline-image">
-                <NuxtImg
-                  src="/images/lance-javate-on-boat.jpg"
-                  alt="Lance Javate on a boat"
-                  class="inline-image"
-                  loading="lazy"
-                  width="300"
-                  height="400"
-                />
+                <ClientOnly>
+                  <NuxtImg
+                    src="/images/lance-javate-on-boat.jpg"
+                    alt="Lance Javate on a boat"
+                    class="inline-image"
+                    loading="lazy"
+                    width="300"
+                    height="400"
+                  />
+                  <template #fallback>
+                    <img
+                      src="/images/lance-javate-on-boat.jpg"
+                      alt="Lance Javate on a boat"
+                      class="inline-image"
+                      loading="lazy"
+                      width="300"
+                      height="400"
+                    />
+                  </template>
+                </ClientOnly>
               </div>
               <p
                 v-for="(paragraph, index) in data.biography.content"

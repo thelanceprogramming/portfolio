@@ -25,13 +25,6 @@ const currentTabComponent = computed(() => {
 const setActiveTab = (tabId: TabId) => {
   activeTab.value = tabId
 }
-
-const scrollToAbout = () => {
-  const aboutSection = document.querySelector('.brief-about-section')
-  if (aboutSection) {
-    aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  }
-}
 </script>
 
 <template>
@@ -84,7 +77,7 @@ const scrollToAbout = () => {
           </div>
 
           <div class="flex justify-center pt-8">
-            <Button variant="primary" @click="scrollToAbout">
+            <Button variant="primary" @click="navigateTo('/about')">
               Read more about me
             </Button>
             </div>
