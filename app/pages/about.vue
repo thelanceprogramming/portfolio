@@ -125,6 +125,19 @@ const briefTimeline = [
               </div>
             </div>
             
+            <div class="download-cv-mobile lg:hidden">
+              <div class="download-cv-box">
+                <a
+                  href="/documents/Lance Javate - CV.pdf"
+                  download="Lance Javate - CV.pdf"
+                  class="download-cv-button w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 bg-primary-600 text-white hover:bg-primary-700 transform active:scale-95 effect-shine relative overflow-hidden"
+                >
+                  <Icon name="heroicons:arrow-down-tray" class="w-5 h-5" />
+                  <span>Download CV</span>
+                </a>
+              </div>
+            </div>
+            
             <div class="hobbies-box">
               <h3 class="hobbies-title">Hobbies & Interests</h3>
               <div class="hobbies-content">
@@ -155,6 +168,17 @@ const briefTimeline = [
                 width="600"
                 height="800"
               />
+              
+              <div class="download-cv-box hidden lg:block">
+                <a
+                  href="/documents/Lance Javate - CV.pdf"
+                  download="Lance Javate - CV.pdf"
+                  class="download-cv-button w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 bg-primary-600 text-white hover:bg-primary-700 transform active:scale-95 effect-shine relative overflow-hidden"
+                >
+                  <Icon name="heroicons:arrow-down-tray" class="w-5 h-5" />
+                  <span>Download CV</span>
+                </a>
+              </div>
               
               <div class="brief-timeline">
                 <h3 class="timeline-title">Timeline</h3>
@@ -199,6 +223,11 @@ const briefTimeline = [
     </section>
 
     <TechStackShowcase />
+
+    <CTA 
+      headline="Let's Work Together"
+      tagline="Have a project in mind? Let's create something that leaves an impression."
+    />
   </div>
 </template>
 
@@ -487,9 +516,30 @@ const briefTimeline = [
 
 @media (max-width: 640px) {
   .biography-inline-image {
-    width: 150px;
-    max-width: 35%;
+    min-width: 150px;
+    max-width: 50%;
     margin: 0 0 1rem 1rem;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1023px) {
+  .biography-inline-image {
+    min-width: 200px;
+  }
+}
+
+.download-cv-box {
+  background: rgb(255 255 255);
+  border: 1px solid rgb(229 231 235);
+  border-radius: 0.25rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(7, 0, 77, 0.04);
+  margin-top: 1rem;
+}
+
+@media (max-width: 1023px) {
+  .download-cv-mobile .download-cv-box {
+    margin-top: 0;
   }
 }
 
@@ -640,6 +690,52 @@ const briefTimeline = [
     font-size: 0.9375rem;
     margin-bottom: 1.25rem;
   }
+}
+
+.download-cv-button {
+  position: relative;
+}
+
+.download-cv-button.effect-shine::before {
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  content: "";
+  display: block;
+  height: 100%;
+  left: -75%;
+  position: absolute;
+  top: 0;
+  transform: skewX(-25deg);
+  width: 50%;
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.download-cv-button.effect-shine:hover::before,
+.download-cv-button.effect-shine:focus::before {
+  opacity: 1;
+  animation: shine 0.85s;
+}
+
+@keyframes shine {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
+.download-cv-button span,
+.download-cv-button .icon {
+  position: relative;
+  z-index: 1;
 }
 
 </style>

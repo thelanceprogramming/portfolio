@@ -190,6 +190,11 @@ useHead({
       </div>
     </div>
   </section>
+
+  <CTA 
+    headline="Let's Work Together"
+    tagline="Have a project in mind? Let's create something that leaves an impression."
+  />
 </template>
 
 <style scoped>
